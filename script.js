@@ -1,23 +1,37 @@
-// Requisição Fetch
+    
+let quantPokemon = document.getElementById('quantidade')    
+let btn = document.getElementById('btnPokemon')
 
-fetch("https://pokeapi.co/api/v2/pokemon?limit=151")
+btn.addEventListener('click', () => {
+
+    catchPokemon(quantPokemon.value)
+
+})
+
+function catchPokemon(quantidade){
+
+    // Requisição Fetch
+    fetch('https://pokeapi.co/api/v2/pokemon?limit='+quantidade)
     .then(response => response.json())
     .then(allpokemon => {
 
         let pokemons = []
 
+        
         allpokemon.results.map((val) => {
 
+            // fetch para pegar nome e imagem dos pokemons
             fetch(val.url)
             .then(response => response.json())
             .then(pokemonSingle => {
 
+                // add nome e imagem ao array, referente ao pokemon
                 pokemons.push({
                     nome: val.name,
                     image: pokemonSingle.sprites.front_default
                 })
 
-                if(pokemons.length == 151){
+                if(pokemons.length == quantidade){
                     // Finalizando a requisição
 
                     pokemons.map((val) => {
@@ -42,3 +56,5 @@ fetch("https://pokeapi.co/api/v2/pokemon?limit=151")
         })
 
     })
+
+}
