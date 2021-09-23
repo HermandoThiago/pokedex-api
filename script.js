@@ -10,14 +10,17 @@ btn.addEventListener('click', () => {
 
 function catchPokemon(quantidade){
 
+    quantPokemon.value = ""
+
     // Requisição Fetch
     fetch('https://pokeapi.co/api/v2/pokemon?limit='+quantidade)
     .then(response => response.json())
     .then(allpokemon => {
 
+        let boxes = document.querySelector(".pokemon-boxes")
+        boxes.innerHTML = ""
         let pokemons = []
 
-        
         allpokemon.results.map((val) => {
 
             // fetch para pegar nome e imagem dos pokemons
