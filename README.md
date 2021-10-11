@@ -2,7 +2,7 @@
 
 Olá, bem vindo a este repositório :nerd_face:
 
-STATUS: Completo - apesar de estar completo ainda posso criar algumas funcionalidades mais a frente, mas por enquanto vou me dedicar a outros projetos. :smile_cat:
+STATUS: Completo :smile_cat:
 
 Um pouco do projeto:
 
