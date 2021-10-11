@@ -12,6 +12,11 @@ function catchPokemon(quantidade){
 
     quantPokemon.value = ""
 
+    if(quantidade > 151){
+        alert('O número máximo de pokemons é 151')
+        quantidade = 151
+    }
+
     // Requisição Fetch
     fetch('https://pokeapi.co/api/v2/pokemon?limit='+quantidade)
     .then(response => response.json())
